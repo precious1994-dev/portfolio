@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+    <h1><a class="btn btn-success" href="{{path('easyadmin')}}"> Go to admin </a> </h1>
+    <body>
+    <div class="containter-fluid bg-warning container-principale" style="height: 70%">
+        <div class="row">
+            {#   icon fontawsome    #}
+            <div class="col-md-6 text-center">
+                <i class="fas fa-code text-center code-icon mt-5" style="font-size:358px;"></i>
+            </div>
+            {# fin de fontawesome #}
+
+            {# Titre #}
+            <div class="col-md-6 mt-5 ">
+                <h1 class="text-center dev" style="margin-top: 80px;font-family: Lobster, cursive; font-size: 50px">Hi am Precious <br>Developeur Integrateur Junior</h1>
+                {# fin de mon Titre #}
+
+                {#button pour mon formulaire#}
+                <div class="row text-center ">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-warning text-center shadow px-5 mt-4" data-toggle="modal" data-target="#exampleModal"
+                                data-whatever="@getbootstrap"> Conatct <i class="fas fa-cogs "></i></button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content text-center my-popup">
+                                    <div class="modal-header text-center">
+                                        <h5 class="modal-title pop-header ml-auto" id="exampleModalLabel"></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body bg-warning">
+                                        <h3>formulaire Contact</h3>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" placeholder="Nom">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" placeholder="Prenom">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {# fin de mon button formulaire #}
+                    </div>
+                    <div class="col-md-6">
+                        {# button pour telecharger mon CV #}
+                        <a href="Mon cv/precious cv.pdf" target="_blank">
+                            <button type="button" class="btn btn-warning  shadow px-5 mt-4">Voir mon CV <i
+                                        class="fas fa-cloud-download-alt"></i></button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {#  fin de mon button CV      #}
+
+        </div>
+
+        {# section Apropos  #}
+
+        <h1 class="text-center mt-5 header-apropos" style="font-family: Lobster, cursive;font-size: 40px">Apropos</h1>
+        <div class="row ">
+            <div class="col-md-6 mt-3 text-center">
+                <img src="{{ asset('/img/banner-image.png') }}" class="rounded img-apropos " style="height: 68%" alt="Apropos" >
+            </div>
+            <div class="col-md-6 mt-5 ">
+                <p class="font-weight-normal">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
+                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                </p>
+                <i class="fab fa-github" style="font-size: 37px"></i>
+                <i class="fab fa-linkedin pl-4" style="font-size: 37px"></i>
+                <i class="fab fa-instagram pl-4" style="font-size: 37px"></i>
+            </div>
+        </div>
+        <div class="container-fluid mb-2">
+            <h1 class="mt-5 text-center header-realisation" style="font-family: Lobster, cursive;font-size: 40px">Realisation</h1>
+            <div class="row mt-5 text-center">
+
+                {% for realisation in realisations %}
+                <div class="col-md-4 ">
+                    <div class="card text-white ml-2 text-center">
+                        <img src="{{ asset('img/car.jpg') }}" class="card-img" alt="...">
+                        <div class="card-img-overlay shadow">
+                            <h5 class="card-title">{{ realisation.titre }}</h5>
+                            <p class="card-text">{{ realisation.domaine}}</p>
+                            <p class="card-text">Last updated 3 mins ago</p>
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+            </div>
+            </div>
+        </div>
+
+
+
+        <h1 class="text-center mt-5 header-apropos" style="font-family: Lobster, cursive;font-size: 40px">Competence</h1>
+        <div class="row mt-5">
+            <div class="col-md-4 text-center">
+                <i class="fab fa-html5 " style="font-size: 160px"></i>
+                <h2 style="font-family: Lobster, cursive;">HTML5</h2>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fab fa-css3-alt" style="font-size: 160px"></i>
+                <h2 style="font-family: Lobster, cursive;">CSS3</h2>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fab fa-bootstrap" style="font-size: 160px"></i>
+                <h2 style="font-family: Lobster, cursive;">Bootstrap</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <i class="fab fa-js-square" style="font-size: 160px"></i>
+                <h2 style="font-family: Lobster, cursive;">Javascript</h2>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fab fa-wordpress" style="font-size: 160px"></i>
+                <h2 style="font-family: Lobster, cursive;">Wordpress</h2>
+
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="fab fa-php" style="font-size: 160px"></i>
+                <h2 style="font-family: Lobster, cursive;"> Php</h2>
+            </div>
+        </div>
+    </div>
+    </body>
+{% endblock %}
