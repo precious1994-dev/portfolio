@@ -1,7 +1,7 @@
 easy_admin:
     site_name: 'GESTION DES PARAMETRES DU CV'
     design:
-        menu: [ 
+        menu: [
             { entity: 'Personne', label: 'Gestion des Personnes', icon: 'user'}, 
             { entity: 'Realisation', label: 'Gestion des Realisations', icon: 'tasks'},
             { entity: 'Education', label: 'Gestion des Education', icon: 'gear'},
