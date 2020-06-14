@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %}Hello DefaultController!{% endblock %}
 
 {% block body %}
-    <h1><a class="btn btn-success" href="{{path('easyadmin')}}"> Go to admin </a> </h1>
     <body class="bg-warning">
     <div class="containter-fluid bg-warning container-principale">
         <div class="row">
@@ -153,5 +153,16 @@
        {#  fin competence  #}
     </div>
     </div>
+
+
+    {% block footer %}
+
+
+    <div class="row" style="background-color: black">
+        <div class="col mt-3">
+            <p class="text-center text-white">Developer par precious @2020</p>
+        </div>
+    </div>
+    {% endblock %}
     </body>
 {% endblock %}
