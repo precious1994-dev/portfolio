@@ -129,7 +129,7 @@ class Education
      *
      * @param App\Entity\Personne $idPersonne
      *
-     * @return Realisation
+     * @return education
      */
     public function setIdPersonne(Personne $idPersonne = null)
     {
@@ -137,4 +137,5 @@ class Education
 
         return $this;
     }
+
 }

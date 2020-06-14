@@ -23,6 +23,7 @@ class DefaultController extends AbstractController
             'competences'=>$competences,
             'educations'=>$educations,
             'personne'=>$personne,
+
         ]);
 
     }

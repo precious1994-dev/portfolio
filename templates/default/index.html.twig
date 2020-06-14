@@ -4,8 +4,8 @@
 
 {% block body %}
     <h1><a class="btn btn-success" href="{{path('easyadmin')}}"> Go to admin </a> </h1>
-    <body>
-    <div class="containter-fluid bg-warning container-principale" style="height: 70%">
+    <body class="bg-warning">
+    <div class="containter-fluid bg-warning container-principale">
         <div class="row">
             {#   icon fontawsome    #}
             <div class="col-md-6 text-center">
@@ -27,23 +27,37 @@
                              aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content text-center my-popup">
-                                    <div class="modal-header text-center">
-                                        <h5 class="modal-title pop-header ml-auto" id="exampleModalLabel"></h5>
+                                    <div class="modal-header text-center bg-warning" style="border-bottom: none">
+                                        <h3>formulaire Contact</h3>
+                                        <h5 class="modal-title pop-header " id="exampleModalLabel"></h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times</span>
                                         </button>
                                     </div>
                                     <div class="modal-body bg-warning">
-                                        <h3>formulaire Contact</h3>
-                                        {{ for  }}
+                                        <form>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Nom">
+                                                <input type="text" class="form-control" placeholder="nom">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Prenom">
+                                                <input type="text" class="form-control " placeholder="prenom">
                                             </div>
                                         </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="email" class="form-control mt-3" placeholder="email">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="tel" class="form-control mt-3" placeholder="telephone">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -65,27 +79,54 @@
 
         {# section Apropos  #}
 
-        <h1 class="text-center mt-5 header-apropos" style="font-family: Lobster, cursive;font-size: 40px">Apropos</h1>
-        <div class="row ">
+        <h1 class="pt-5 mt-5 text-center header-apropos" style="font-family: Lobster, cursive;font-size: 40px">Apropos</h1>
+        <div class="row mt-5">
             <div class="col-md-6 mt-3 text-center">
-                <img src="{{ asset('/img/banner-image.png') }}" class="rounded img-apropos " style="height: 68%" alt="Apropos" >
+                <img src="{{ asset('/img/banner-image.png') }}" class="rounded img-apropos " style="height: 60%" alt="Apropos" >
             </div>
-            <div class="col-md-6 mt-5 ">
+            <div class="col-md-6 ">
                 <p class="font-weight-normal">{{ personne.description }}</p>
                 <i class="fab fa-github" style="font-size: 37px"></i>
                 <i class="fab fa-linkedin pl-4" style="font-size: 37px"></i>
                 <i class="fab fa-instagram pl-4" style="font-size: 37px"></i>
             </div>
         </div>
+          {# fin section apropos  #}
 
-        <section id="Realisation">
-        <div class="container-fluid">
-            <h1 class="mt-5 text-center header-realisation" style="font-family: Lobster, cursive;font-size: 40px">Realisation</h1>
-            <div class="row mt-5 text-center">
 
+                    {# parcour #}
+        <div class="container-fluid ">
+            <h1 class="text-center pt-3 " style="font-family: Lobster, cursive;font-size: 40px">Parcours</h1>
+            <div class="row ">
+                {% for education in educations %}
+                    <div class="col-md-12 mt-4">
+                        <div class="card shadow-lg border-0 bg-warning mt-4 " >
+                            <h1 class="card-header border-dark">
+                                {{ education.nom }}
+                            </h1>
+                            <div class="card-body bg-warning shadow-lg" style="border-radius: 10px">
+                                <blockquote class="blockquote mb-0">
+                                    <h1>{{ education.diplome }}</h1>
+                                    <p>{{ education.detail }}</p>
+                                    <footer class="blockquote-footer">{{ education.detail }}</footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+        {# fin parcours #}
+
+
+           {#  Realisation #}
+        <div class="container-fluid mt-5">
+            <h1 class="text-center header-realisation" style="font-family: Lobster, cursive;font-size: 40px">Realisation</h1>
+            <div class="row  text-center">
                 {% for realisation in realisations %}
                 <div class="col-md-4 ">
-                    <div class="card text-dark ml-2 text-center">
+                    <div class="card text-dark ml-2 text-lg-left mt-5">
                         <img src="{{ asset('img/banner-image.png') }}" class="card-img" alt="...">
                         <div class="card-img-overlay shadow">
                             <h5 class="card-title">{{ realisation.titre }}</h5>
@@ -96,14 +137,11 @@
                 </div>
                {% endfor %}
             </div>
-        </div>
-        </section>
-        </div>
 
+         {#  fin de realisation  #}
 
-
-
-        <h1 class="text-center mt-5 header-apropos" style="font-family: Lobster, cursive;font-size: 40px">Competence</h1>
+            {#  competence  #}
+            <h1 class="text-center mt-5 header-apropos" style="font-family: Lobster, cursive;font-size: 40px">Competence</h1>
         <div class="row mt-5">
             {% for competence in competences %}
                 <div class="col-md-4 text-center">
@@ -111,10 +149,9 @@
                     <h2 style="font-family: Lobster, cursive;">{{ competence.titre }}</h2>
                 </div>
             {% endfor %}
-
-
         </div>
-
+       {#  fin competence  #}
+    </div>
     </div>
     </body>
 {% endblock %}

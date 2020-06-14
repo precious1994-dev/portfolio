@@ -6,7 +6,6 @@ use App\Entity\Competence;
 use App\Entity\Personne;
 use App\Form\CompetenceType;
 use App\Repository\CompetenceRepository;
-use App\Repository\RealisationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Personne;
 use App\Form\PersonneType;
+use App\Repository\AproposRepository;
 use App\Repository\PersonneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +24,22 @@ class PersonneController extends AbstractController
         return $this->render('personne/index.html.twig', [
             'personnes' => $personneRepository->findAll(),
         ]);
+
     }
+        /**
+         * @Route("/apropos", name="apropos", methods={"GET"})
+         * @return Response
+         */
+        public function apropos(PersonneRepository $personneRepository): Response
+    {
+        //$realisationRepository = new  RealisationRepository();
+        return $this->render('default/apropos.html.twig', [
+            'personne' => $personneRepository->find(1),
+        ]);
+    }
+
+
+
 
     /**
      * @Route("/new", name="personne_new", methods={"GET","POST"})

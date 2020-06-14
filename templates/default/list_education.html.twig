@@ -2,23 +2,27 @@
 
 
 {% block body %}
-  <body class="bg-warning">
-     <div class="row mt-5">
-          {% for education in educations %}
-         <div class="col-md-4">
-             <div class="jumbotron jumbotron-fluid">
-                 <div class="container">
-                     <h1 class="display-4">{{ education.nom }}</h1>
-                     <p class="lead"></p>
-                 </div>
-             </div>
-         </div>
-         {% endfor %}
-     </div>
+    <body class="bg-warning">
+    <div class="container-fluid">
+        <div class="row mt-5">
+            {% for education in educations %}
+               <div class="col-md-12 mt-5">
+                   <div class="card shadow-lg border-0 bg-warning" >
+                       <h1 class="card-header border-dark">
+                           {{ education.nom }}
+                       </h1>
+                       <div class="card-body bg-warning shadow-lg" style="border-radius: 10px">
+                           <blockquote class="blockquote mb-0">
+                               <h1>{{ education.diplome }}</h1>
+                               <p>{{ education.detail }}</p>
+                               <footer class="blockquote-footer">{{ education.dateDeDebut|date('m/d/Y') }}-{{ education.dateDeFin|date('m/d/y') }}</footer>
+                           </blockquote>
+                       </div>
+                   </div>
+               </div>
 
-
-  </body>
-
-
-
+            {% endfor %}
+        </div>
+    </div>
+    </body>
 {% endblock %}
