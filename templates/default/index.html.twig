@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Hello DefaultController!{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block body %}
     <body class="bg-warning">
     <div class="containter-fluid bg-warning container-principale">
         <div class="row">
             {#   icon fontawsome    #}
-            <div class="col-md-6 text-center">
-                <i class="fas fa-code text-center code-icon mt-5" style="font-size:358px;"></i>
+            <div class="col-md-6 text-center ">
+                <i class="fas fa-code text-center code-icon mt-5" style="font-size:358px;padding-top: 45px"></i>
             </div>
             {# fin de fontawesome #}
 
@@ -153,16 +153,13 @@
        {#  fin competence  #}
     </div>
     </div>
-
+    </body>
 
     {% block footer %}
-
-
-    <div class="row" style="background-color: black">
-        <div class="col mt-3">
-            <p class="text-center text-white">Developer par precious @2020</p>
+        <div class="row mt-5" style="background-color: black">
+            <div class="col mt-3">
+                <p class="text-center text-white">Developer par precious @2020</p>
+            </div>
         </div>
-    </div>
     {% endblock %}
-    </body>
 {% endblock %}
