@@ -31,24 +31,15 @@ class Competence
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=255)
      */
     private $description;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $date_de_debut;
+    private $photo;
 
-    /**
-     * @ORM\Column(type="date")
-     */
-    private $date_de_fin;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $note;
 
     public function getId(): ?int
     {
@@ -79,38 +70,38 @@ class Competence
         return $this;
     }
 
-    public function getDateDeDebut(): ?\DateTimeInterface
+    /**
+     * Get idPersonne
+     *
+     * @return App\Entity\Personne
+     */
+    public function getIdPersonne()
     {
-        return $this->date_de_debut;
+        return $this->idPersonne;
     }
 
-    public function setDateDeDebut(\DateTimeInterface $date_de_debut): self
+    /**
+     * Set idPersonne
+     *
+     * @param App\Entity\Personne $idPersonne
+     *
+     * @return Competence
+     */
+    public function setIdPersonne(Personne $idPersonne = null)
     {
-        $this->date_de_debut = $date_de_debut;
+        $this->idPersonne = $idPersonne;
 
         return $this;
     }
 
-    public function getDateDeFin(): ?\DateTimeInterface
+    public function getPhoto(): ?string
     {
-        return $this->date_de_fin;
+        return $this->photo;
     }
 
-    public function setDateDeFin(\DateTimeInterface $date_de_fin): self
+    public function setPhoto(string $photo): self
     {
-        $this->date_de_fin = $date_de_fin;
-
-        return $this;
-    }
-
-    public function getNote(): ?int
-    {
-        return $this->note;
-    }
-
-    public function setNote(int $note): self
-    {
-        $this->note = $note;
+        $this->photo = $photo;
 
         return $this;
     }

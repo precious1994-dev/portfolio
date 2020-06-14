@@ -111,4 +111,10 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+    public function __toString(){
+        // to show the name of the Personne in the select
+        return $this->email;
+        // to show the id of the Personne in the select
+        // return $this->id;
+    }
 }

@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-     <body class="bg-warning">
+    <body class="bg-warning">
     <section id="Realisation mt-5">
         <div class="container-fluid">
             <h1 class="mt-5 text-center header-realisation " style="font-family: Lobster, cursive;font-size: 40px;padding-top: 50px">Realisation</h1>
             <div class="row mt-5 text-center" style="margin-bottom: 150px">
 
-                {% for realisation in realisations %}
+                {% for education in educations %}
                     <div class="col-md-4 mt-5">
                         <div class="card text-dark ml-2 text-center">
-                            <img src="{{ asset('img/banner-image.png')  }}" class="card-img" alt="...">
+                            <img src="{{ asset('img/banner-image.png') }}" class="card-img" alt="...">
                             <div class="card-img-overlay shadow">
                                 <h5 class="card-title">{{ realisation.titre }}</h5>
-                                <p class="card-text"></p>
+                                <p class="card-text">{{ realisation.domaine}}</p>
                                 <p class="card-text">Last updated 3 mins ago</p>
                             </div>
                         </div>
@@ -23,6 +23,5 @@
         </div>
     </section>
     </div>
-     </body>
-    {% endblock %}
-
+    </body>
+{% endblock %}

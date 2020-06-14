@@ -114,4 +114,27 @@ class Education
 
         return $this;
     }
+    /**
+     * Get idPersonne
+     *
+     * @return App\Entity\Personne
+     */
+    public function getIdPersonne()
+    {
+        return $this->idPersonne;
+    }
+
+    /**
+     * Set idPersonne
+     *
+     * @param App\Entity\Personne $idPersonne
+     *
+     * @return Realisation
+     */
+    public function setIdPersonne(Personne $idPersonne = null)
+    {
+        $this->idPersonne = $idPersonne;
+
+        return $this;
+    }
 }

@@ -37,6 +37,7 @@ class PersonneController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($personne);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('personne_index');

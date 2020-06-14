@@ -3,14 +3,29 @@ easy_admin:
     design:
         menu: [ 
             { entity: 'Personne', label: 'Gestion des Personnes', icon: 'user'}, 
-            { entity: 'Realisation', label: 'Gestion des Realisations', icon: 'tasks'}, 
-          ]
+            { entity: 'Realisation', label: 'Gestion des Realisations', icon: 'tasks'},
+            { entity: 'Education', label: 'Gestion des Education', icon: 'gear'},
+            { entity: 'Competence', label: 'Gestion des Competence', icon: 'book'},
+
+        ]
     entities:
       Personne:
         class: App\Entity\Personne
 
       Realisation:
-        App\Entity\Realisation
+         class: App\Entity\Realisation
+         form:
+           fields:
+             - { property: 'pieceJointe', type: 'file_upload', type_options: {upload_dir: 'public/uploads/files/'} }
+             - { property: 'titre'}
+             - { property: 'description'}
+
+
+
+      Education:
+        App\Entity\Education
+      Competence:
+        App\Entity\Competence
        # List the entity class name you want to manage
        # - App\Entity\Personne
        # - App\Entity\Realisation

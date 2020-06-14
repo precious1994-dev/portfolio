@@ -43,48 +43,9 @@ class Realisation
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=50)
-     */
-    private $domaine;
-
-    /**
-     * @var \DateTime
-     * @ORM\Column(name="date_debut", type="datetime", nullable=true)
-     */
-    private $dateDebut;
-
-    /**
-     * @var \DateTime
-     * @ORM\Column(name="date_fin", type="datetime", nullable=true)
-     */
-    private $dateFin;
-
-    /**
-     * @var string
      * @ORM\Column(name="piece_jointe", type="string", length=255, nullable=true)
      */
     private $pieceJointe;
-
-    /**
-     * @var bool
-     * @ORM\Column(name="flag", type="boolean", nullable=true)
-     */
-    private $flag;
-
-
-    public function __construct(){
-
-        $this->dateDebut = new \DateTime('now');
-        
-        //cree une erreur
-        //$this->dateFin->setTimestamp(strtotime('+3 month'));
-
-        /*
-         * Flag = false => compétences
-         * Flag = true => réalisations
-         */
-        $this->flag = false;
-    }
 
 
 
@@ -161,71 +122,7 @@ class Realisation
         return $this;
     }
 
-     /**
-     * get domaine de Realisation
-     * @return domaine
-     */
-    public function getDomaine()
-    {
-        return $this->domaine;
-    }
-
     /**
-     * Set domaine de Realisation
-     * @param string $domaine
-     * @return Realisation
-     */
-    public function setDomaine($domaine)
-    {
-        $this->domaine = $domaine;
-
-        return $this;
-    }
-
-     /**
-     * get dateDebut de Realisation
-     * @param \DateTime $dateDebut
-     * @return \DateTime
-     */
-    public function getDateDebut()
-    {
-        return $this->dateDebut;
-    }
-
-    /**
-     * Set dateDebut de Realisation
-     * @return Realisation
-     */
-    public function setDateDebut($dateDebut)
-    {
-        $this->dateDebut = $dateDebut;
-
-        return $this;
-    }
-
-
-     /**
-     * get dateFin de Realisation
-     * @return dateFin
-     */
-    public function getDateFin()
-    {
-        return $this->dateFin;
-    }
-
-    /**
-     * Set titre de Realisation
-     * @param \DateTime $dateFin
-     * @return Realisation
-     */
-    public function setDateFin($dateFin)
-    {
-        $this->dateFin = $dateFin;
-
-        return $this;
-    }
-
-     /**
      * get pieceJointe de Realisation
      * @return string pieceJointe
      */
@@ -246,24 +143,5 @@ class Realisation
         return $this;
     }
 
-     /**
-     * get flag de Realisation
-     * @return bool flag
-     */
-    public function getFlag()
-    {
-        return $this->flag;
-    }
 
-    /**
-     * Set flag de Realisation
-     * @param bool $flag
-     * @return Realisation
-     */
-    public function setFlag($flag)
-    {
-        $this->flag = $flag;
-
-        return $this;
-    }
 }

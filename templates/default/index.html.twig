@@ -35,6 +35,7 @@
                                     </div>
                                     <div class="modal-body bg-warning">
                                         <h3>formulaire Contact</h3>
+                                        {{ for  }}
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" placeholder="Nom">
@@ -70,69 +71,50 @@
                 <img src="{{ asset('/img/banner-image.png') }}" class="rounded img-apropos " style="height: 68%" alt="Apropos" >
             </div>
             <div class="col-md-6 mt-5 ">
-                <p class="font-weight-normal">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.
-                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                    Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                </p>
+                <p class="font-weight-normal">{{ personne.description }}</p>
                 <i class="fab fa-github" style="font-size: 37px"></i>
                 <i class="fab fa-linkedin pl-4" style="font-size: 37px"></i>
                 <i class="fab fa-instagram pl-4" style="font-size: 37px"></i>
             </div>
         </div>
-        <div class="container-fluid mb-2">
+
+        <section id="Realisation">
+        <div class="container-fluid">
             <h1 class="mt-5 text-center header-realisation" style="font-family: Lobster, cursive;font-size: 40px">Realisation</h1>
             <div class="row mt-5 text-center">
 
                 {% for realisation in realisations %}
                 <div class="col-md-4 ">
-                    <div class="card text-white ml-2 text-center">
-                        <img src="{{ asset('img/car.jpg') }}" class="card-img" alt="...">
+                    <div class="card text-dark ml-2 text-center">
+                        <img src="{{ asset('img/banner-image.png') }}" class="card-img" alt="...">
                         <div class="card-img-overlay shadow">
                             <h5 class="card-title">{{ realisation.titre }}</h5>
-                            <p class="card-text">{{ realisation.domaine}}</p>
+                            <p class="card-text"></p>
                             <p class="card-text">Last updated 3 mins ago</p>
                         </div>
                     </div>
                 </div>
                {% endfor %}
             </div>
-            </div>
         </div>
+        </section>
+        </div>
+
 
 
 
         <h1 class="text-center mt-5 header-apropos" style="font-family: Lobster, cursive;font-size: 40px">Competence</h1>
         <div class="row mt-5">
-            <div class="col-md-4 text-center">
-                <i class="fab fa-html5 " style="font-size: 160px"></i>
-                <h2 style="font-family: Lobster, cursive;">HTML5</h2>
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="fab fa-css3-alt" style="font-size: 160px"></i>
-                <h2 style="font-family: Lobster, cursive;">CSS3</h2>
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="fab fa-bootstrap" style="font-size: 160px"></i>
-                <h2 style="font-family: Lobster, cursive;">Bootstrap</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 text-center">
-                <i class="fab fa-js-square" style="font-size: 160px"></i>
-                <h2 style="font-family: Lobster, cursive;">Javascript</h2>
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="fab fa-wordpress" style="font-size: 160px"></i>
-                <h2 style="font-family: Lobster, cursive;">Wordpress</h2>
+            {% for competence in competences %}
+                <div class="col-md-4 text-center">
+                    <i class="{{ competence.description }}" style="font-size: 160px"></i>
+                    <h2 style="font-family: Lobster, cursive;">{{ competence.titre }}</h2>
+                </div>
+            {% endfor %}
 
-            </div>
-            <div class="col-md-4 text-center">
-                <i class="fab fa-php" style="font-size: 160px"></i>
-                <h2 style="font-family: Lobster, cursive;"> Php</h2>
-            </div>
+
         </div>
+
     </div>
     </body>
 {% endblock %}
