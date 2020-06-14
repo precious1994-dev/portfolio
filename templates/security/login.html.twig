@@ -20,7 +20,7 @@
                             {% endif %}
 
                             {% if app.user %}
-                                <div class="mb-3">
+                                <div class="mb-3 font-weight-bold">
                                     You are logged in as {{ app.user.username }} <a href="{{ path('app_logout') }}"><i class="fas fa-walking" style="font-size: 40px;color: black"></i></a>
                                 </div>
                             {% endif %}
