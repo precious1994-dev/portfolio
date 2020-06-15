@@ -21,48 +21,10 @@
                 {#button pour mon formulaire#}
                 <div class="row text-center ">
                     <div class="col-md-6">
-                        <button type="button" class="btn btn-warning text-center shadow px-5 mt-4" data-toggle="modal" data-target="#exampleModal"
-                                data-whatever="@getbootstrap"> Conatct <i class="fas fa-cogs "></i></button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content text-center my-popup">
-                                    <div class="modal-header text-center bg-warning" style="border-bottom: none">
-                                        <h3>formulaire Contact</h3>
-                                        <h5 class="modal-title pop-header " id="exampleModalLabel"></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body bg-warning">
-                                        <form>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="nom">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control " placeholder="prenom">
-                                            </div>
-                                        </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <input type="email" class="form-control mt-3" placeholder="email">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="tel" class="form-control mt-3" placeholder="telephone">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <textarea class="form-control mt-3" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a href="{{ path('contact') }}">
+                        <button type="button" class="btn btn-warning text-center shadow px-5 mt-4" data-toggle="modal" data-target="#exampleModal">Contact <i class="fas fa-cogs "></i></button></a>
                         {# fin de mon button formulaire #}
+
                     </div>
                     <div class="col-md-6">
                         {# button pour telecharger mon CV #}
@@ -156,7 +118,7 @@
     </body>
 
     {% block footer %}
-        <div class="row mt-5" style="background-color: black">
+        <div class="row-fluid mt-5" style="background-color: black">
             <div class="col mt-3">
                 <p class="text-center text-white">Developer par precious @2020</p>
             </div>

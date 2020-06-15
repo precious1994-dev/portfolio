@@ -23,6 +23,7 @@
         {#   icon     #}
         <a class="navbar-brand text-dark font-weight-bolder" href="#"><i class="fab fa-codepen ml-5" style="font-size: 42px"></i></a>
         {#fin de mon icon #}
+
         <button class="navbar-toggler spinner-border border-dark shadow" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
         </button>
@@ -53,10 +54,16 @@
     </nav>
     {# fin de NAV #}
 
+         <div class="container-fluid">
+             <div class="row">
+                 <div class="col">
+                     {% block body %}{% endblock %}
+                 </div>
+             </div>
+         </div>
 
 
 
-        {% block body %}{% endblock %}
         {% block javascripts %}
             <script src="{{ asset('/javascript/app.js') }}"></script>
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
