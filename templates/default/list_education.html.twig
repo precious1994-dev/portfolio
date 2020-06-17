@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-
+{% block title %}parcours{% endblock %}
 {% block body %}
     <body class="bg-warning">
     <div class="container-fluid">
+        <h1 class="text-center mt-5 pt-5" style="font-family: Lobster, cursive;font-size: 40px">Mes Parcours</h1>
         <div class="row mt-5">
             {% for education in educations %}
                <div class="col-md-12 mt-5">

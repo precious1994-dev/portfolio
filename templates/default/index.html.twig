@@ -15,21 +15,21 @@
 
             {# Titre #}
             <div class="col-md-6 mt-5 ">
-                <h1 class="text-center dev" style="margin-top: 80px;font-family: Lobster, cursive; font-size: 50px">Hi am Precious <br>Developeur Integrateur Junior</h1>
+                <h1 class="text-center dev" style="margin-top: 80px;font-family: Lobster, cursive; font-size: 50px"> Bonjour Precious <br>Developeur Integrateur Junior</h1>
                 {# fin de mon Titre #}
 
                 {#button pour mon formulaire#}
                 <div class="row text-center ">
                     <div class="col-md-6">
                         <a href="{{ path('contact') }}">
-                        <button type="button" class="btn btn-warning text-center shadow px-5 mt-4" data-toggle="modal" data-target="#exampleModal">Contact <i class="fas fa-cogs "></i></button></a>
+                        <button type="button" class="btn btn-warning text-center shadow px-5 mt-4 font-weight-bold" data-toggle="modal" data-target="#exampleModal">Contact <i class="fas fa-handshake ml-2 mt-2" ></i></button></a>
                         {# fin de mon button formulaire #}
 
                     </div>
                     <div class="col-md-6">
                         {# button pour telecharger mon CV #}
                         <a href="Mon cv/precious cv.pdf" target="_blank">
-                            <button type="button" class="btn btn-warning  shadow px-5 mt-4">Voir mon CV <i
+                            <button type="button" class="btn btn-warning  shadow px-5 mt-4 font-weight-bold">Voir mon CV <i
                                         class="fas fa-cloud-download-alt"></i></button>
                         </a>
                     </div>
@@ -48,9 +48,9 @@
             </div>
             <div class="col-md-6 ">
                 <p class="font-weight-normal">{{ personne.description }}</p>
-                <a href="https://github.com/precious1994-dev" class="text-dark">   <i class="fab fa-github" style="font-size: 37px"></i></a>
-                <a href="https://www.linkedin.com/in/precious-uzoaru-5448b6142/" class="text-dark">  <i class="fab fa-linkedin pl-4" style="font-size: 37px"></i></a>
-                <a href="https://www.instagram.com/precious.cosmas/" class="text-dark"> <i class="fab fa-instagram pl-4 " style="font-size: 37px"></i></a>
+                <a href="https://github.com/precious1994-dev" target="_blank" class="text-dark">   <i class="fab fa-github" style="font-size: 37px"></i></a>
+                <a href="https://www.linkedin.com/in/precious-uzoaru-5448b6142/" target="_blank" class="text-dark">  <i class="fab fa-linkedin pl-4" style="font-size: 37px"></i></a>
+                <a href="https://www.instagram.com/precious.cosmas/" target="_blank" class="text-dark"> <i class="fab fa-instagram pl-4 " style="font-size: 37px"></i></a>
             </div>
         </div>
           {# fin section apropos  #}
@@ -88,12 +88,12 @@
             <div class="row  text-center">
                 {% for realisation in realisations %}
                 <div class="col-md-4 ">
-                    <div class="card text-dark ml-2 text-lg-left mt-5">
-                        <img src="{{ asset('img/banner-image.png') }}" class="card-img" alt="...">
+                    <div class="card text-dark ml-2 text-lg-left mt-5 shadow-lg">
+                        <img src="{{ asset('public/files/' ~ realisation.filename()) }}" class="card-img" alt="...">
                         <div class="card-img-overlay shadow">
                             <h5 class="card-title">{{ realisation.titre }}</h5>
                             <p class="card-text"></p>
-                            <p class="card-text">Last updated 3 mins ago</p>
+                            <p class="card-text">{{ realisation.description }}</p>
                         </div>
                     </div>
                 </div>
@@ -115,13 +115,12 @@
        {#  fin competence  #}
     </div>
     </div>
-    </body>
-
     {% block footer %}
-        <div class="row-fluid mt-5" style="background-color: black">
+        <div class="row mt-5" style="background-color: black">
             <div class="col mt-3">
                 <p class="text-center text-white">Developer par precious @2020</p>
             </div>
         </div>
     {% endblock %}
+    </body>
 {% endblock %}

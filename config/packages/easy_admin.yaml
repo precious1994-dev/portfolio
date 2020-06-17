@@ -1,31 +1,50 @@
 easy_admin:
+    edit:
+      actions: ['show', '-delete']
     site_name: 'GESTION DES PARAMETRES DU CV'
     design:
         menu: [
-            { entity: 'Personne', label: 'Gestion des Personnes', icon: 'user'}, 
-            { entity: 'Realisation', label: 'Gestion des Realisations', icon: 'tasks'},
-            { entity: 'Education', label: 'Gestion des Education', icon: 'gear'},
-            { entity: 'Competence', label: 'Gestion des Competence', icon: 'book'},
+            { entity: 'Personne', label: 'Gestion des Personnes', icon: 'user', css_class: 'btn '},
+            { entity: 'Realisation', label: 'Gestion des Realisations', icon: 'tasks', css_class: 'btn '},
+            { entity: 'Education', label: 'Gestion des Education', icon: 'gear', css_class: 'btn '},
+            { entity: 'Competence', label: 'Gestion des Competence', icon: 'book', css_class: 'btn '},
 
         ]
     entities:
       Personne:
         class: App\Entity\Personne
+        list:
+          actions:
+            - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+            - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }
 
       Realisation:
          class: App\Entity\Realisation
+         list:
+           actions:
+             - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+             - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }
          form:
            fields:
-             - { property: 'pieceJointe', type: 'file_upload', type_options: {upload_dir: 'public/uploads/files/'} }
+             - { property: 'imageFile', type: 'vich_image', base_path: '%uploads_path%'}
              - { property: 'titre'}
-             - { property: 'description'}
+             - { property: 'description', type: 'text-editor', css_class: 'btn btn-danger'}
 
 
 
       Education:
-        App\Entity\Education
+        class: App\Entity\Education
+        list:
+          actions:
+            - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+            - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }
+
       Competence:
-        App\Entity\Competence
+        class: App\Entity\Competence
+        list:
+          actions:
+            - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-secondary'}
+            - { name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger' }
        # List the entity class name you want to manage
        # - App\Entity\Personne
        # - App\Entity\Realisation

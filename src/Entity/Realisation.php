@@ -4,11 +4,14 @@ namespace App\Entity;
 
 use App\Repository\RealisationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 use App\Entity\Personne;
 
 /**
  * @ORM\Entity(repositoryClass=RealisationRepository::class)
+ * @Vich\Uploadable()
  */
 class Realisation
 {
@@ -21,12 +24,27 @@ class Realisation
     private $id;
 
     /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
+     */
+    private $filename;
+
+    /**
+     *  @var File|null
+     * @Vich\UploadableField(mapping="realisation_image", fileNameProperty="filename")
+     *
+     */
+    private $imageFile;
+
+    /**
      * id de la personne
      * @var [type]
      * @ORM\ManyToOne(targetEntity="App\Entity\Personne")
      * @ORM\JoinColumn(name="idPersonne", referencedColumnName="id")
      */
     private $idPersonne;
+
+
 
 
     /**
@@ -41,12 +59,16 @@ class Realisation
      */
     private $description;
 
-    /**
-     * @var string
-     * @ORM\Column(name="piece_jointe", type="string", length=255, nullable=true)
-     */
-    private $pieceJointe;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $update_at;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $created_at;
 
 
     public function getId()
@@ -123,22 +145,94 @@ class Realisation
     }
 
     /**
-     * get pieceJointe de Realisation
-     * @return string pieceJointe
+     * get image de Realisation
+     * @return string image
      */
-    public function getPieceJointe()
+    public function getimage()
     {
-        return $this->pieceJointe;
+        return $this->image;
     }
 
     /**
-     * Set pieceJointe de Realisation
-     * @param string pieceJointe
+     * Set image de Realisation
+     * @param string image
      * @return Realisation
      */
-    public function setPieceJointe($pieceJointe)
+    public function setimage($image)
     {
-        $this->pieceJointe = $pieceJointe;
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     * @return Realisation
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        $this->imageFile = $imageFile;
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+
+        }
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string|null $filename
+     * @return Realisation
+     */
+    public function setFilename(?string $filename): Realisation
+    {
+        $this->filename = $filename;
+
+        if($filename){
+            $this->update_at = new \DateTime();
+        }
+
+        return $this;
+    }
+
+    public function getUpdateAt(): ?\DateTimeInterface
+    {
+        return $this->update_at;
+    }
+
+    public function setUpdateAt(\DateTimeInterface $update_at): self
+    {
+        $this->update_at = $update_at;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }
